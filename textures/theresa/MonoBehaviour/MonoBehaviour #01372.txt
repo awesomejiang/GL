@@ -1,0 +1,32 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = 3548489709069279274
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = -2158813220301745541
+string m_Name = ""
+float PitchAngle = 70
+UInt8 IgnoreLossyScale = 0
+float Size = 1.2
+float ProjectorDistance = 0
+float CameraDistance = 2
+PPtr<$Shader> Shader
+	int m_FileID = 3
+	SInt64 m_PathID = 5161283036607851363
+int size = 64
+int format = 4
+PPtr<$Shader> ProjectorShader
+	int m_FileID = 3
+	SInt64 m_PathID = -682975185160704363
+PPtr<$Texture2D> FallOffTex
+	int m_FileID = 8
+	SInt64 m_PathID = -364422388080266720
+Vector3f LightForwardEulerAngle
+	float x = 0
+	float y = 0
+	float z = 0
+UInt8 GetLightForwardFromStageEnv = 1
+PPtr<$Transform> TargetNode
+	int m_FileID = 0
+	SInt64 m_PathID = 0

@@ -1,0 +1,41 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = 111830640340673829
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = -7631008631508849471
+string m_Name = ""
+EntityAudioConfig WitchTimeEvent
+	string EventID = "VO_L_The_GM_WitchTime"
+	float CD = 3
+EntityAudioConfig MoveEvent
+	string EventID = "VO_L_The_GM_Mvmt"
+	float CD = 3
+EntityAudioConfig PickUpHPHigh
+	string EventID = "VO_L_The_GM_Pickup_HP_High"
+	float CD = 5
+EntityAudioConfig PickUpHPLow
+	string EventID = "VO_L_The_GM_Pickup_HP_Low"
+	float CD = 5
+EntityAudioConfig PickUpEquipItem
+	string EventID = "VO_L_The_GM_PickupGear"
+	float CD = 5
+EntityAudioConfig PickUpCoin
+	string EventID = "VO_L_The_GM_PickupMoney"
+	float CD = 3
+EntityAudioConfig MonsterBorn
+	string EventID = "VO_L_The_GM_Argo"
+	float CD = 8
+EntityAudioConfig BossBorn
+	string EventID = "VO_L_The_GM_Argo_High"
+	float CD = 10
+EntityAudioConfig UltraReady
+	string EventID = "VO_L_The_GM_SkillReady"
+	float CD = 10
+EntityAudioConfig DeathSingle
+	string EventID = "VO_L_The_GM_Fail"
+	float CD = 10
+EntityAudioConfig DeathTeam
+	string EventID = "VO_L_The_GM_DeathTeam"
+	float CD = 10

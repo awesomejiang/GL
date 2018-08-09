@@ -1,0 +1,16 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = -4521628074071047191
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = 1215611293731826893
+string m_Name = ""
+Vector3f m_Center
+	float x = -0.19
+	float y = 0
+	float z = 0
+float m_Radius = 0.08
+float m_Height = 0.48
+int m_Direction = 0
+int m_Bound = 0

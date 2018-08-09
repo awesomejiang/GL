@@ -1,0 +1,19 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = -9097236722292964637
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = -2164072857221112252
+string m_Name = ""
+vector starEventNames
+	Array Array
+	int size = 4
+		[0]
+		string data = "VO_Dress_Theresa_1"
+		[1]
+		string data = "VO_Dress_Theresa_2"
+		[2]
+		string data = "VO_Dress_Theresa_3"
+		[3]
+		string data = "VO_Dress_Theresa_4"

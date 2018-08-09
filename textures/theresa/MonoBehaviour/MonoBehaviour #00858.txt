@@ -1,0 +1,27 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = 111830640340673829
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = -1334041255641195881
+string m_Name = ""
+PPtr<$Transform> leftFootAnchor
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+PPtr<$Transform> rightFootAnchor
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+float footWidth = 0
+float footLength = 0
+float frontBackRatio = 1
+float contactThickness = 0.1
+int maxStateToHold = 10
+float vectorSmoothFactor = 0
+float horizontalSpeedThreshold = 5
+float verticleSpeedThreshold = 2
+float staticSpeedThreshold = 1
+float angleSpeedThreshold = 360
+float staticAngleSpeedThreshold = 90
+float spanBetweenEvents = 0.5
+float slideRatioThreshold = 5

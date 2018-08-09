@@ -1,0 +1,26 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = 7937515138790127823
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = 3961463511594920688
+string m_Name = ""
+PPtr<$Shader> MultipleGaussPassFilterShader
+	int m_FileID = 3
+	SInt64 m_PathID = -3094162814866660056
+PPtr<$Shader> MultipleGaussPassFilterShaderHQ
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+PPtr<$Shader> DrawShadowShader
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+PPtr<$Transform> Target
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+BitField CullingLayer
+	unsigned int m_Bits = 256
+int ReplacementLayer = 23
+UInt8 useBlur = 1
+UInt8 HighQuality = 0
+int blurLevel = 4

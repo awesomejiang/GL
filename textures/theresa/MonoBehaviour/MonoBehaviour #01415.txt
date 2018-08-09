@@ -1,0 +1,97 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = -8831618054847219253
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = 8407979380618123730
+string m_Name = ""
+PPtr<$Transform> m_Root
+	int m_FileID = 0
+	SInt64 m_PathID = 2840616466559626867
+float m_UpdateRate = 60
+int m_UpdateMode = 1
+float m_Damping = 0.4
+AnimationCurve m_DampingDistrib
+	vector m_Curve
+		Array Array
+		int size = 0
+	int m_PreInfinity = 2
+	int m_PostInfinity = 2
+	int m_RotationOrder = 4
+float m_Elasticity = 0.3
+AnimationCurve m_ElasticityDistrib
+	vector m_Curve
+		Array Array
+		int size = 0
+	int m_PreInfinity = 2
+	int m_PostInfinity = 2
+	int m_RotationOrder = 4
+float m_Stiffness = 0.3
+AnimationCurve m_StiffnessDistrib
+	vector m_Curve
+		Array Array
+		int size = 0
+	int m_PreInfinity = 2
+	int m_PostInfinity = 2
+	int m_RotationOrder = 4
+float m_Inert = 0.2
+AnimationCurve m_InertDistrib
+	vector m_Curve
+		Array Array
+		int size = 0
+	int m_PreInfinity = 2
+	int m_PostInfinity = 2
+	int m_RotationOrder = 4
+float m_Radius = 0
+AnimationCurve m_RadiusDistrib
+	vector m_Curve
+		Array Array
+		int size = 0
+	int m_PreInfinity = 2
+	int m_PostInfinity = 2
+	int m_RotationOrder = 4
+float m_EndLength = 0
+Vector3f m_EndOffset
+	float x = 0
+	float y = 0
+	float z = 0
+Vector3f m_Gravity
+	float x = 0
+	float y = 0
+	float z = 0
+Vector3f m_Force
+	float x = 0
+	float y = 0
+	float z = 0
+vector m_Colliders
+	Array Array
+	int size = 3
+		[0]
+		PPtr<$DynamicBoneCollider> data
+			int m_FileID = 0
+			SInt64 m_PathID = -8400364530181258831
+		[1]
+		PPtr<$DynamicBoneCollider> data
+			int m_FileID = 0
+			SInt64 m_PathID = 3148333551668454912
+		[2]
+		PPtr<$DynamicBoneCollider> data
+			int m_FileID = 0
+			SInt64 m_PathID = -4612190433410194862
+vector m_Exclusions
+	Array Array
+	int size = 0
+int m_FreezeAxis = 0
+UInt8 m_DistantDisable = 0
+PPtr<$Transform> m_ReferenceObject
+	int m_FileID = 0
+	SInt64 m_PathID = 0
+float m_DistanceToObject = 20
+UInt8 m_showDebugOnGui = 0
+float m_xPosi = 10
+float m_yPosi = 10
+float m_speedThreshold = 2
+UInt8 m_adjustInert = 0
+float m_adjustInertStart = 0.35
+float m_adjustInertSlope = 0.45

@@ -1,0 +1,201 @@
+PPtr<GameObject> m_GameObject
+	int m_FileID = 0
+	SInt64 m_PathID = -9097236722292964637
+UInt8 m_Enabled = 1
+PPtr<MonoScript> m_Script
+	int m_FileID = 0
+	SInt64 m_PathID = 6665218334138136584
+string m_Name = ""
+int avatarID = 511
+int dressID = 0
+string galTouchControllerPath = "Theresa_Gal/Theresa_Commom_Gal_AC"
+float defaultPosY = 0
+float effectYOffset = -0.3
+vector renderers
+	Array Array
+	int size = 16
+		[0]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -8728612834107559046
+		[1]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 1068700339922492734
+		[2]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -8001793071820259036
+		[3]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -3516637419673547459
+		[4]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -5869895115223947190
+		[5]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 8530477909822688681
+		[6]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 556295789077259048
+		[7]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 5078015946494027225
+		[8]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 8594204140337026051
+		[9]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -4908035500152108960
+		[10]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -215312855209706768
+		[11]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -3461901013844147810
+		[12]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = 2676658488549465678
+		[13]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -8281413582311486454
+		[14]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -2107325080702789653
+		[15]
+		PPtr<$Renderer> data
+			int m_FileID = 0
+			SInt64 m_PathID = -7606664910271489152
+UInt8 tattooVisible = 0
+AttachPoint attachPoints
+	Array Array
+	int size = 7
+		[0]
+		AttachPoint data
+			string name = "Head"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = -7811975740424862369
+		[1]
+		AttachPoint data
+			string name = "RootNode"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = 5811162409767945087
+		[2]
+		AttachPoint data
+			string name = "EQUIPMENT_SLOT_STIGMATA_1"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = 4147049149830029926
+		[3]
+		AttachPoint data
+			string name = "EQUIPMENT_SLOT_STIGMATA_2"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = 5967105132435504896
+		[4]
+		AttachPoint data
+			string name = "EQUIPMENT_SLOT_STIGMATA_3"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = -5063647006933778347
+		[5]
+		AttachPoint data
+			string name = "Stigmata"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = -3825288170457943154
+		[6]
+		AttachPoint data
+			string name = "WeaponRightHand"
+			PPtr<$Transform> pointTransform
+				int m_FileID = 0
+				SInt64 m_PathID = 984759676513205996
+string avatarName = "Theresa"
+PPtr<$Renderer> leftEyeRenderer
+	int m_FileID = 0
+	SInt64 m_PathID = 1068700339922492734
+PPtr<$Renderer> rightEyeRenderer
+	int m_FileID = 0
+	SInt64 m_PathID = -8001793071820259036
+PPtr<$Renderer> mouthRenderer
+	int m_FileID = 0
+	SInt64 m_PathID = 8530477909822688681
+PPtr<$Transform> headRoot
+	int m_FileID = 0
+	SInt64 m_PathID = 5811162409767945087
+vector switchObjects
+	Array Array
+	int size = 0
+vector galTouchHideObjects
+	Array Array
+	int size = 1
+		[0]
+		PPtr<$GameObject> data
+			int m_FileID = 0
+			SInt64 m_PathID = 6273866382506839138
+float curveAlpha = 0
+float curveBeta = 0
+float curveGamma = 0
+float curveDelta = 0
+float curveEpsilon = 0
+float curveZeta = 0
+float curveEta = 0
+float curveTheta = 0
+float curveIota = 0
+float curveKappa = 0
+float curveLambda = 0
+float curveMu = 0
+ColorRGBA curveColorAlpha
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorBeta
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorGamma
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorDelta
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorEpsilon
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorZeta
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorEta
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
+ColorRGBA curveColorTheta
+	float r = 1
+	float g = 1
+	float b = 1
+	float a = 1
