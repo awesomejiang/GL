@@ -12,7 +12,7 @@
 
 class Shader{
 public:
-	Shader(std::string const &vshader, std::string const &fshader);
+	Shader(std::string const &vshader, std::string const &fshader, std::string const &gshader = "");
 
 	void use() const;
 
@@ -22,7 +22,7 @@ public:
 	void deleteProgram() const;
 
 private:
-	unsigned int ID, vertex, fragment;
+	unsigned int ID, vertex, geometry, fragment;
 	std::string vcode, fcode;
 };
 

@@ -15,6 +15,7 @@
 #include "shader.h"
 #include "scene.h"
 #include "camera.h"
+#include "texture.h"
 #include "mesh.h"
 #include "model.h"
 #include "framebuffer.h"
@@ -128,7 +129,7 @@ void setSuitUniforms(Shader &suitShader){
   suitShader.setUniform("spotLight.specular", glm::vec3(1.0f));
 }
 
-Mesh createScreen(){
+Mesh createScreen(Framebuffer const &framebuffer){
   //create lamp by hand
   std::vector<Vertex> vertices = {
     // positions          // normals           // texture coords
@@ -142,7 +143,68 @@ Mesh createScreen(){
   std::vector<unsigned int> indices(6);
   std::iota(indices.begin(), indices.end(), 0);
 
-  return Mesh(vertices, indices, {});
+  return Mesh(vertices, indices, {Texture(framebuffer.getTex(), "texture2D")});
+}
+
+
+Mesh createSkybox(){
+  std::vector<Vertex> vertices = {
+    // positions          // normals           // texture coords
+    {{-1.0f, -1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {0.0f, 0.0f}},
+    {{ 1.0f, -1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {1.0f, 0.0f}},
+    {{ 1.0f,  1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {1.0f, 1.0f}},
+    {{ 1.0f,  1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {1.0f, 1.0f}},
+    {{-1.0f,  1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {0.0f, 1.0f}},
+    {{-1.0f, -1.0f, -1.0f},  {0.0f,  0.0f, -1.0f},  {0.0f, 0.0f}},
+
+    {{-1.0f, -1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {0.0f, 0.0f}},
+    {{ 1.0f, -1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {1.0f, 0.0f}},
+    {{ 1.0f,  1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {1.0f, 1.0f}},
+    {{ 1.0f,  1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {1.0f, 1.0f}},
+    {{-1.0f,  1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {0.0f, 1.0f}},
+    {{-1.0f, -1.0f,  1.0f},  {0.0f,  0.0f, 1.0f},   {0.0f, 0.0f}},
+
+    {{-1.0f,  1.0f,  1.0f}, {-1.0f,  0.0f,  0.0f},  {1.0f, 0.0f}},
+    {{-1.0f,  1.0f, -1.0f}, {-1.0f,  0.0f,  0.0f},  {1.0f, 1.0f}},
+    {{-1.0f, -1.0f, -1.0f}, {-1.0f,  0.0f,  0.0f},  {0.0f, 1.0f}},
+    {{-1.0f, -1.0f, -1.0f}, {-1.0f,  0.0f,  0.0f},  {0.0f, 1.0f}},
+    {{-1.0f, -1.0f,  1.0f}, {-1.0f,  0.0f,  0.0f},  {0.0f, 0.0f}},
+    {{-1.0f,  1.0f,  1.0f}, {-1.0f,  0.0f,  0.0f},  {1.0f, 0.0f}},
+
+    {{ 1.0f,  1.0f,  1.0f},  {1.0f,  0.0f,  0.0f},  {1.0f, 0.0f}},
+    {{ 1.0f,  1.0f, -1.0f},  {1.0f,  0.0f,  0.0f},  {1.0f, 1.0f}},
+    {{ 1.0f, -1.0f, -1.0f},  {1.0f,  0.0f,  0.0f},  {0.0f, 1.0f}},
+    {{ 1.0f, -1.0f, -1.0f},  {1.0f,  0.0f,  0.0f},  {0.0f, 1.0f}},
+    {{ 1.0f, -1.0f,  1.0f},  {1.0f,  0.0f,  0.0f},  {0.0f, 0.0f}},
+    {{ 1.0f,  1.0f,  1.0f},  {1.0f,  0.0f,  0.0f},  {1.0f, 0.0f}},
+
+    {{-1.0f, -1.0f, -1.0f},  {0.0f, -1.0f,  0.0f},  {0.0f, 1.0f}},
+    {{ 1.0f, -1.0f, -1.0f},  {0.0f, -1.0f,  0.0f},  {1.0f, 1.0f}},
+    {{ 1.0f, -1.0f,  1.0f},  {0.0f, -1.0f,  0.0f},  {1.0f, 0.0f}},
+    {{ 1.0f, -1.0f,  1.0f},  {0.0f, -1.0f,  0.0f},  {1.0f, 0.0f}},
+    {{-1.0f, -1.0f,  1.0f},  {0.0f, -1.0f,  0.0f},  {0.0f, 0.0f}},
+    {{-1.0f, -1.0f, -1.0f},  {0.0f, -1.0f,  0.0f},  {0.0f, 1.0f}},
+
+    {{-1.0f,  1.0f, -1.0f},  {0.0f,  1.0f,  0.0f},  {0.0f, 1.0f}},
+    {{ 1.0f,  1.0f, -1.0f},  {0.0f,  1.0f,  0.0f},  {1.0f, 1.0f}},
+    {{ 1.0f,  1.0f,  1.0f},  {0.0f,  1.0f,  0.0f},  {1.0f, 0.0f}},
+    {{ 1.0f,  1.0f,  1.0f},  {0.0f,  1.0f,  0.0f},  {1.0f, 0.0f}},
+    {{-1.0f,  1.0f,  1.0f},  {0.0f,  1.0f,  0.0f},  {0.0f, 0.0f}},
+    {{-1.0f,  1.0f, -1.0f},  {0.0f,  1.0f,  0.0f},  {0.0f, 1.0f}}
+  };
+  std::vector<unsigned int> indices(36);
+  std::iota(indices.begin(), indices.end(), 0);
+
+  return  Mesh(vertices, indices, {
+    {
+      {"textures/skybox/right.jpg",
+       "textures/skybox/left.jpg",
+       "textures/skybox/top.jpg",
+       "textures/skybox/bottom.jpg",
+       "textures/skybox/back.jpg",
+       "textures/skybox/front.jpg"},
+      "textureCube"}
+  });
 }
 
 int main(){
@@ -155,6 +217,11 @@ int main(){
     //create framebuffer
     Framebuffer framebuffer(800, 600);
 
+    //create skybox
+    Mesh skybox = createSkybox();
+    Shader skyboxShader("shaders/skybox.vs", "shaders/skybox.fs");
+    //skyboxShader.setUniform("skybox", 0);
+
     //create lamp
     Mesh lamp = createLamp();
     Shader lampShader("shaders/lamp.vs", "shaders/lamp.fs");
@@ -163,13 +230,14 @@ int main(){
     Model suit("textures/suit/nanosuit.obj");
     Shader suitShader("shaders/suit.vs", "shaders/suit.fs");
     setSuitUniforms(suitShader);
+    //suitShader.setUniform("skybox", 0);
 
     //load suitScaled model
     Model suitScaled("textures/suit/nanosuit.obj");
     Shader suitScaledShader("shaders/suit.vs", "shaders/color.fs");
 
     //create "screen"
-    Mesh screen = createScreen();
+    Mesh screen = createScreen(framebuffer);
     Shader screenShader("shaders/screen.vs", "shaders/screen.fs");
 
     //rendering loop
@@ -202,10 +270,10 @@ int main(){
       }
 
       //draw suit
-      suitShader.use();
       auto model = glm::mat4(1.0f);
       model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
       model = glm::scale(model, glm::vec3(0.2f));
+      suitShader.use();
       suitShader.setUniform("model", model);
       suitShader.setUniform("spotLight.position", camera.getPos());
       suitShader.setUniform("spotLight.direction", camera.getFront());
@@ -233,6 +301,14 @@ int main(){
       //reset tests
       glStencilMask(0xFF);
 
+      //draw skybox
+      glDepthFunc(GL_LEQUAL);
+      skyboxShader.use();
+      skyboxShader.setUniform("view", glm::mat4(glm::mat3(camera.getView())));
+      skyboxShader.setUniform("projection", camera.getProjection());
+      skybox.draw(skyboxShader);
+      glDepthFunc(GL_LESS);
+
       //second pass
       framebuffer.unbind();
       glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -241,7 +317,7 @@ int main(){
       glDisable(GL_STENCIL_TEST);
 
       screenShader.use();
-      screen.draw(GL_TEXTURE_2D, framebuffer.getTex());
+      screen.draw(screenShader);
 
     	//check status
     	glfwSwapBuffers(scene.window);
@@ -249,6 +325,11 @@ int main(){
     }
 
     suitShader.deleteProgram();
+    skyboxShader.deleteProgram();
+    lampShader.deleteProgram();
+    suitShader.deleteProgram();
+    suitScaledShader.deleteProgram();
+    screenShader.deleteProgram();
 
     glfwTerminate();
 

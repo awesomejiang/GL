@@ -93,7 +93,7 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
 		//check if path is already loaded
 		std::string str(aStr.C_Str());
 		if(loadedTexture.find(str) == loadedTexture.end())
-			loadedTexture.emplace(str, Texture{textureFromFile(str, directory), typeName});
+			loadedTexture.emplace(str, Texture(directory+"/"+str, typeName));
 
 		//set texture into textures from map
 		textures.push_back(loadedTexture[str]);
@@ -102,41 +102,9 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
 	return textures;
 }
 
-
-unsigned int Model::textureFromFile(std::string const &path, std::string const &directory){
-    std::string filename = directory + '/' + path;
-
-    unsigned int textureID;
-    glGenTextures(1, &textureID);
-
-    int width, height, nrComponents;
-    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
-    if (data){
-        GLenum format;
-        if (nrComponents == 1)
-            format = GL_RED;
-        else if (nrComponents == 3)
-            format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
-
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_image_free(data);
-    }
-    else{
-        stbi_image_free(data);
-    	throw std::runtime_error("Texture failed to load at path: " + path);
-    }
-
-    return textureID;
+void Model::setTexture(Texture const &texture){
+	for(auto &mesh: meshes)
+		mesh.setTexture(texture);
 }
 
 void Model::draw(Shader const &shader) const{

@@ -25,15 +25,15 @@ private:
 class Camera{
 public:
 	Camera(GLFWwindow *window,
-		glm::vec3 const &pos = {0.0f, 0.0f, 3.0f},
+		glm::vec3 const &pos = {0.0f, 1.0f, 3.0f},
 		glm::vec3 const &front = {0.0f, 0.0f, -1.0f},
 		glm::vec3 const &up = {0.0f, 1.0f, 0.0f});
 
 	void update();
-	glm::mat4 getView();
-	glm::mat4 getProjection();
-	glm::vec3 getFront();
-	glm::vec3 getPos();
+	glm::mat4 getView() const;
+	glm::mat4 getProjection() const;
+	glm::vec3 getFront() const;
+	glm::vec3 getPos() const;
 
 private:
 	GLFWwindow *window;

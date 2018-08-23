@@ -1,9 +1,9 @@
 CXX = g++
 FLAGS = -std=c++11
 
-PROGS = first blend advanced
+PROGS = defer theresa
 
-SUBS = object scene shader texture camera model mesh framebuffer
+SUBS = object scene camera gbuffer shadow shader framebuffer model mesh texture
 
 LIBS = $(patsubst %, lib/lib%.so, $(SUBS))
 LINKS = $(patsubst %, -l%, $(SUBS))

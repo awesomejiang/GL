@@ -7,54 +7,45 @@
 #include <vector>
 #include <type_traits>
 
-Shader::Shader(std::string const &vshader, std::string const &fshader){
-	 std::string vcode, fcode;
+Shader::Shader(std::string const &vshader, std::string const &fshader, std::string const &gshader){
+	size_t sz = gshader.empty()? 2: 3;
+	std::vector<std::string> shader = {vshader, fshader, gshader};
+	std::vector<std::string> code(sz, "");
 
 	//read files
-	std::ifstream vfs(vshader), ffs(fshader);
-	if(vfs.is_open() && ffs.is_open()){
-		std::stringstream vss, fss;
-		vss << vfs.rdbuf();
-		fss << ffs.rdbuf();
-
-		vcode = vss.str();
-		fcode = fss.str();
+	for(auto i=0; i<sz; ++i){
+		std::ifstream fs(shader[i]);
+		if(fs.is_open()){
+			std::stringstream ss;
+			ss << fs.rdbuf();
+			code[i] = ss.str();
+		}
+		else
+			throw std::runtime_error("Cannot open shader file: " + shader[i]);
 	}
-	else
-		throw std::runtime_error("Cannot open shader files.");
 
 	//compile shaders
+	ID = glCreateProgram();
 	int success;
 	char infoLog[512];
 
-	//vertex shader
-	char const *vptr = vcode.c_str();
-	vertex = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertex, 1, &vptr, nullptr);
-	glCompileShader(vertex);
+	std::vector<unsigned int*> shaderPtr = {&vertex, &fragment, &geometry};
+	std::vector<GLenum> shaderType = {GL_VERTEX_SHADER, GL_FRAGMENT_SHADER, GL_GEOMETRY_SHADER};
+	for(auto i=0; i<sz; ++i){
+		char const *ptr = code[i].c_str();
+		*shaderPtr[i] = glCreateShader(shaderType[i]);
+		auto shaderID = *shaderPtr[i];
+		glShaderSource(shaderID, 1, &ptr, nullptr);
+		glCompileShader(shaderID);
 
-	glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
-	if(!success){
-		glGetShaderInfoLog(vertex, 512, nullptr, infoLog);
-		throw std::runtime_error(infoLog);
+		glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+		if(!success){
+			glGetShaderInfoLog(shaderID, 512, nullptr, infoLog);
+			throw std::runtime_error(infoLog);
+		}
+		//link it to program
+		glAttachShader(ID, shaderID);
 	}
-
-	//fragment shader
-	char const *fptr = fcode.c_str();
-	fragment = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragment, 1, &fptr, nullptr);
-	glCompileShader(fragment);
-
-	glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
-	if(!success){
-		glGetShaderInfoLog(fragment, 512, nullptr, infoLog);
-		throw std::runtime_error(infoLog);
-	}
-
-	//link shaders
-	ID = glCreateProgram();
-	glAttachShader(ID, vertex);(glIsShader(vertex)==GL_TRUE);
-	glAttachShader(ID, fragment);
 	glLinkProgram(ID);
 
 	glGetProgramiv(ID, GL_LINK_STATUS, &success);

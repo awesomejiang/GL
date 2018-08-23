@@ -77,18 +77,18 @@ void Camera::update(){
 }
 
 
-glm::mat4 Camera::getView(){
+glm::mat4 Camera::getView() const{
 	return view;
 }
 
-glm::mat4 Camera::getProjection(){
+glm::mat4 Camera::getProjection() const{
 	return projection;
 }
 
-glm::vec3 Camera::getFront(){
+glm::vec3 Camera::getFront() const{
 	return front;
 }
 
-glm::vec3 Camera::getPos(){
+glm::vec3 Camera::getPos() const{
 	return pos;
 }
